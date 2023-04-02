@@ -1,0 +1,35 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    test02.txt                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: snemoto <snemoto@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/10 21:37:26 by snemoto           #+#    #+#              #
+#    Updated: 2023/03/06 21:58:54 by snemoto          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
+
+int	main(int argc, char **argv)
+{
+	char	*str;
+	int		fd;
+	int		i;
+
+	i = 1;
+	while (i < argc)
+	{
+		fd = open(argv[i++], O_RDONLY);
+		str = "";
+		while ((str = get_next_line(fd)) != NULL)
+			printf("[%s]\n", str);
+	}
+	printf("----------\n");
+	system("leaks gnl");
+	printf("----------\n");
+	return (0);
+}

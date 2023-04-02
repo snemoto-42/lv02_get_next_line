@@ -1,0 +1,12 @@
+.gitignore
+*.o
+*.a
+*.out
+Makefile
+main.c
+*.txt
+test.sh
+gnlTester/
+test00/
+gnl-pointer/
+gnl-bonus/
